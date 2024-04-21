@@ -22,6 +22,36 @@ class PostController extends Controller
     }
     public function showpost(Post $post)
     {
-        return view('edit', ['post' => $post,]);
+        if (auth()->user()->id !== $post['user_id']) {
+            return redirect('/');
+        }
+        return view('edit-post', ['post' => $post]);
+    }
+
+    public function updatePost(Request $request, Post $post)
+    {
+        if (auth()->user()->id !== $post->user_id) {
+            return redirect('/');
+        }
+
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+            'body' => 'required|string',
+        ]);
+
+        $post->update($validatedData);
+
+        return redirect('/');
+    }
+
+
+    public function deletePost(Post $post)
+    {
+        if (auth()->user()->id !== $post->user_id) {
+            return redirect('/');
+        }
+        $post->delete();
+
+        return redirect('/');
     }
 }

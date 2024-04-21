@@ -21,6 +21,9 @@ Route::post('/login', [UserController::class, 'login']);
 
 // Blog post routes
 Route::post('/create-post', [PostController::class, 'createPost']);
-Route::get('/edit/{post}', [PostController::class, 'showpost']);
-Route::put('/update-post{post}', [PostController::class, 'updatePost']);
-Route::post('/delete-post', [PostController::class, 'deletePost']);
+Route::get('/edit-post/{post}', [PostController::class, 'showpost']);
+Route::put('/edit-post/{post}', [PostController::class, 'updatePost']);
+
+Route::delete('/delete-post/{post}', [PostController::class, 'deletePost']);
+
+

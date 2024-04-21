@@ -12,11 +12,16 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-light bg-light">
+        <span class="navbar-brand mb-0 h1">Cool Blog Post Application</span>
+    </nav>
 
     @auth
 
         <div class="shadow p-1 bg-body-tertiary rounded d-grid gap-2 col-12 mx-auto mt-10">
-            <p class="text-center ">Congrates...!! you are logged in...</p>
+            <div class="alert alert-primary" role="alert">
+                <p class="text-center ">Congrates...!! you are logged in...</p>
+            </div>
             <form action="/logout" method="POST">
                 @csrf
                 <div class="d-flex justify-content-center">
@@ -46,16 +51,17 @@
             @foreach ($posts as $post)
                 <div class="card mt-2 bg-secondary text-white">
                     <div class="card-body">
-                        <h5 class="card-title">{{ $post['title'] }}</h5>
+                        <h5 class="card-title">{{ $post['title'] }} by {{ $post->user->name }}</h5>
                         <p class="card-text">{{ $post['body'] }}</p>
                     </div>
                     <div class="card-footer">
-                        <a href="/edit{{$post->id}}">Edit</a>
-                        <form action="/delete/{{$post->id}}" method="POST">
+                        <a href="/edit-post/{{ $post->id }}">Edit</a>
+                        <form action="/delete-post/{{ $post->id }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button class="btn btn-danger mt-2">Delete</button>
+                            <button type="submit" class="btn btn-danger mt-2">Delete</button>
                         </form>
+
                     </div>
                 </div>
             @endforeach

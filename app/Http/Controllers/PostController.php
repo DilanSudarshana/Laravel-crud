@@ -20,4 +20,8 @@ class PostController extends Controller
 
         return redirect('/');
     }
+    public function showpost(Post $post)
+    {
+        return view('edit', ['post' => $post,]);
+    }
 }

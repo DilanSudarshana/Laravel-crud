@@ -49,6 +49,14 @@
                         <h5 class="card-title">{{ $post['title'] }}</h5>
                         <p class="card-text">{{ $post['body'] }}</p>
                     </div>
+                    <div class="card-footer">
+                        <a href="/edit{{$post->id}}">Edit</a>
+                        <form action="/delete/{{$post->id}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger mt-2">Delete</button>
+                        </form>
+                    </div>
                 </div>
             @endforeach
         </div>

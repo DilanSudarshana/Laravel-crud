@@ -6,14 +6,21 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
-    $posts=Post::all();
-    return view('home',['posts'=>$posts]);
+    $posts = [];
+
+    if (auth()->check()) {
+        $posts = Post::where('user_id', auth()->id())->get();
+    }
+
+    return view('home', ['posts' => $posts]);  // Changed 'post' to 'posts'
 });
 
-Route::post('/register',[UserController::class,'register']);
-Route::post('/logout',[UserController::class,'logout']);
-Route::post('/login',[UserController::class,'login']);
+Route::post('/register', [UserController::class, 'register']);
+Route::post('/logout', [UserController::class, 'logout']);
+Route::post('/login', [UserController::class, 'login']);
 
-//blog post
-Route::post('/create-post',[PostController::class,'createPost']);
-
+// Blog post routes
+Route::post('/create-post', [PostController::class, 'createPost']);
+Route::get('/edit/{post}', [PostController::class, 'showpost']);
+Route::put('/update-post{post}', [PostController::class, 'updatePost']);
+Route::post('/delete-post', [PostController::class, 'deletePost']);

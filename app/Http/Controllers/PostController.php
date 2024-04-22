@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\Controller;
 
 class PostController extends Controller
@@ -18,11 +19,14 @@ class PostController extends Controller
         $inputs['user_id'] = auth()->id();
         Post::create($inputs);
 
+        Session::flash('success_msg', 'Post created successfully');
         return redirect('/');
     }
+
     public function showpost(Post $post)
     {
-        if (auth()->user()->id !== $post['user_id']) {
+        if (auth()->user()->id !== $post->user_id) {
+            Session::flash('error_msg', 'Unauthorized action');
             return redirect('/');
         }
         return view('edit-post', ['post' => $post]);
@@ -31,6 +35,7 @@ class PostController extends Controller
     public function updatePost(Request $request, Post $post)
     {
         if (auth()->user()->id !== $post->user_id) {
+            Session::flash('error_msg', 'Unauthorized action');
             return redirect('/');
         }
 
@@ -41,17 +46,19 @@ class PostController extends Controller
 
         $post->update($validatedData);
 
+        Session::flash('success_msg', 'Post updated successfully');
         return redirect('/');
     }
-
 
     public function deletePost(Post $post)
     {
         if (auth()->user()->id !== $post->user_id) {
+            Session::flash('error_msg', 'Unauthorized action');
             return redirect('/');
         }
-        $post->delete();
 
+        $post->delete();
+        Session::flash('delete_msg', 'Post deleted successfully');
         return redirect('/');
     }
 }

@@ -1,18 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-
-    <link rel="stylesheet" href="{{ url('/assets/bootstrap/css/bootstrap.min.css') }}">
-    <script src="{{ url('/assets/bootstrap/js/bootstrap.min.js') }}"></script>
-</head>
-
-<body>
-    <div class="shadow p-3 bg-body-tertiary rounded d-grid gap-2 col-6 mx-auto mt-5">
+@extends('layouts.layout')
+@section('content')
+    <div class="shadow p-3 bg-body-tertiary rounded d-grid gap-2 col-6 mx-auto mt-5 ">
         <h3>Edit Post</h3>
         <form action="/edit-post/{{ $post->id }}" method="POST">
             @csrf
@@ -28,6 +16,4 @@
             </div>
         </form>
     </div>
-</body>
-
-</html>
+@endsection

@@ -37,6 +37,8 @@ class PostController extends Controller
         if (auth()->user()->id !== $post->user_id) {
             Session::flash('error_msg', 'Unauthorized action');
             return redirect('/');
+
+            //return redirect('/')->with('error_msg','Unauthorized action');
         }
 
         $validatedData = $request->validate([
@@ -60,5 +62,21 @@ class PostController extends Controller
         $post->delete();
         Session::flash('delete_msg', 'Post deleted successfully');
         return redirect('/');
+    }
+    public function showAllPosts(Post $post)
+    {
+        $posts = Post::all();
+        return view('/allpost', ['posts' => $posts]);
+    }
+
+    public function showPostByID($id)
+    {
+        $post = Post::find($id);
+
+        if (!$post) {
+            return redirect('/')->with('error', 'Post not found');
+        }
+
+        return view('largepost', ['post' => $post]);
     }
 }

@@ -1,12 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-    <form action="/logout" method="POST" class="d-flex justify-content-end align-items-start">
-        @csrf
-        <button class="btn btn-primary mt-2">Log Out</button>
-    </form>
-
-
+    
     @auth
         <div class="shadow p-3 bg-body-tertiary rounded d-grid gap-2 col-6 mx-auto mt-5">
             <h3>Create a new post</h3>
@@ -26,7 +21,7 @@
 
         <div class="shadow p-3 bg-body-tertiary rounded d-grid gap-2 col-12 mx-auto mt-5">
             <h3 class="text-center mt-3">All Posts</h3>
-        
+
             @foreach ($posts as $post)
                 <div class="card mt-2 bg-secondary text-white">
                     <div class="card-body">
@@ -44,8 +39,8 @@
                 </div>
             @endforeach
         </div>
-        
     @else
+        
         <div class="shadow p-3 mt-5 mb-5 bg-body-tertiary rounded d-grid gap-2 col-6 mx-auto">
             <form action="/login" method="POST">
                 @csrf

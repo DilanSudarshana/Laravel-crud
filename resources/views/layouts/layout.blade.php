@@ -12,9 +12,24 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-light bg-light text-center">
-        <h3 class="text-primary">COOL BLOG POST</h3>
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <h3 class="text-primary float-start">COOL BLOG POST</h3>
+            
+            <div class="d-flex justify-content-end align-items-center">
+                @if(auth()->check()) <!-- Check if user is logged in -->
+                    <form action="/logout" method="POST" class="me-2">
+                        @csrf
+                        <button class="btn btn-primary">Log Out</button>
+                    </form>
+                @endif
+                
+                <a href="/allpost" class="btn btn-primary">View All Posts</a>
+            </div>
+        </div>
     </nav>
+    
+    
     {{-- Delete item success message --}}
     @if (Session::has('delete_msg'))
         <div class="alert alert-success box-border d-flex justify-content-between align-items-center">

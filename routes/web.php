@@ -12,8 +12,15 @@ Route::get('/', function () {
         $posts = Post::where('user_id', auth()->id())->get();
     }
 
-    return view('home', ['posts' => $posts]);  // Changed 'post' to 'posts'
+    return view('home', ['posts' => $posts]);  
 });
+
+Route::get('/allpost', [PostController::class, 'showAllPosts']);
+Route::get('/largepost/{id}', [PostController::class, 'showPostByID'])->name('showPostByID');
+
+// Route::get('/largepost{id}', function (){
+//     return view('largepost');
+// });
 
 Route::post('/register', [UserController::class, 'register']);
 Route::post('/logout', [UserController::class, 'logout']);

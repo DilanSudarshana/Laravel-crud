@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 @section('content')
     <div class="shadow p-3 bg-body-tertiary rounded d-grid gap-2 col-6 mx-auto mt-5 ">
-        <h3>Edit Post</h3>
+        <h4><strong>Edit Post</strong></h4>
         <form action="/edit-post/{{ $post->id }}" method="POST">
             @csrf
             @method('PUT')

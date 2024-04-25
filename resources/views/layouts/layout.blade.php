@@ -70,12 +70,9 @@
     @endif
 
     @yield('content')
-    <div class="d-flex flex-column min-vh-100">
-        <main class="flex-grow-1">
-            <!-- Your main content here -->
-        </main>
 
-        <footer class="border-top text-center mt-auto">
+    <div class="d-flex flex-column">
+        <footer class="border-top mt-5 text-center">
             <p class="text-body-secondary">© 2024 cool blog post, Inc</p>
         </footer>
     </div>

@@ -12,7 +12,7 @@ Route::get('/', function () {
         $posts = Post::where('user_id', auth()->id())->get();
     }
 
-    return view('home', ['posts' => $posts]);
+    return view('home', compact('posts')); // Use compact helper for cleaner syntax
 });
 
 Route::get('/allpost', [PostController::class, 'showAllPosts']);

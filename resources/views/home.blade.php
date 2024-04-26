@@ -20,11 +20,21 @@
         </div>
 
         <!-- All Posts -->
+        <style>
+            .post-card {
+                transition: transform 0.3s ease;
+            }
+
+            .post-card:hover {
+                transform: scale(1.05);
+            }
+        </style>
         <div class="shadow p-3 bg-body-tertiary rounded col-12 mx-auto mt-5">
             <h4 class="text-center mt-3"><strong>All Posts</strong></h4>
             <div class="container">
                 <!--Section: Content-->
                 <section class="text-center">
+
                     <div class="row">
                         @php $count = 0; @endphp <!-- Initialize a counter -->
                         @foreach ($posts as $post)
@@ -73,6 +83,7 @@
                             @endphp
                         @endforeach
                     </div>
+
                 </section>
                 <!--Section: Content-->
             </div>
@@ -129,7 +140,7 @@
                                     </div>
 
                                 </form>
-                                
+
                             </div>
 
                             {{-- <!-- Registration Form -->

@@ -1,12 +1,19 @@
 @extends('layouts.layout')
 
 @section('content')
-    <div class="shadow p-3 bg-body-tertiary rounded col-12 mx-auto mt-5">
+    <div class="shadow p-3 bg-body-tertiary rounded col-12 mx-auto mt-2">
         <main class="my-5">
             <div class="container">
                 <!--Section: Content-->
                 <section class="text-center">
-                    <h4 class="mb-5"><strong>Latest posts</strong></h4>
+                    <div class="shadow p-3 bg-body-tertiary rounded col-12 mx-auto mt-2 mb-5">
+                        <form action="/allpost" method="GET" class="d-flex">
+                            <input type="text" name="query" class="form-control me-2" placeholder="Search...">
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </form>
+                    </div>
+
+                    <h4 class="mt-3 mb-5"><strong>Latest posts</strong></h4>
 
                     @php $count = 0; @endphp <!-- Initialize a counter -->
                     <div class="row">

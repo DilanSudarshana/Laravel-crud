@@ -79,4 +79,15 @@ class PostController extends Controller
 
         return view('largepost', ['post' => $post]);
     }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+
+        $posts = Post::where('title', 'LIKE', "%$query%")
+            ->orWhere('body', 'LIKE', "%$query%")
+            ->get();
+
+        return view('/allpost', compact('posts', 'query'));
+    }
 }

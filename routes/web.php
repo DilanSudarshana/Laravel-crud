@@ -21,7 +21,7 @@ Route::get('/allpost', [PostController::class, 'search'])->name('search');
 
 //user profile
 Route::get('/profile', [UserController::class, 'viewProfile'])->name('profile');
-
+Route::put('/update-profile/{user}', [UserController::class, 'updateProfile'])->name('update-profile');
 
 // Route::get('/largepost{id}', function (){
 //     return view('largepost');

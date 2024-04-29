@@ -59,4 +59,36 @@ class UserController extends Controller
         // Return the view with the authenticated user's profile
         return view('view-profile', compact('user'));
     }
+
+    public function updateProfile(Request $request, User $user)
+    {
+        // Check if the authenticated user is authorized to update the profile
+        if (auth()->user()->id === $user->id) {
+            // Validate the incoming request data
+            $validatedData = $request->validate([
+                'editName' => 'required',
+                'editPassword' => 'required',
+            ]);
+
+            // Update the user's name
+            $user->name = $validatedData['editName'];
+
+            // Update the user's password (if provided)
+            if ($validatedData['editPassword']) {
+                $user->password = bcrypt($validatedData['editPassword']);
+            }
+
+            // Save the updated user details to the database
+            $user->save();
+
+            // Flash a success message to the session
+            session()->flash('success_msg', 'Profile Updated Successfully');
+
+            // Redirect back to the edit profile page
+            return view('view-profile', compact('user'));
+        } else {
+            // If the authenticated user is not authorized to update this user's profile
+            abort(403, 'Unauthorized action.');
+        }
+    }
 }

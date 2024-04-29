@@ -19,8 +19,7 @@ class PostController extends Controller
         $inputs['user_id'] = auth()->id();
         Post::create($inputs);
 
-        Session::flash('success_msg', 'Post created successfully');
-        return redirect('/');
+        return redirect('/')->with('success_msg', 'Post created successfully');
     }
 
     public function showpost(Post $post)

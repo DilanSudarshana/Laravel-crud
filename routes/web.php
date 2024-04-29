@@ -17,8 +17,10 @@ Route::get('/', function () {
 
 Route::get('/allpost', [PostController::class, 'showAllPosts']);
 Route::get('/largepost/{id}', [PostController::class, 'showPostByID'])->name('showPostByID');
-
 Route::get('/allpost', [PostController::class, 'search'])->name('search');
+
+//user profile
+Route::get('/profile', [UserController::class, 'viewProfile'])->name('profile');
 
 
 // Route::get('/largepost{id}', function (){

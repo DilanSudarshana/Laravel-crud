@@ -17,6 +17,12 @@
                     <button class="btn btn-primary ">Create a Post</button>
                 </div>
             </form>
+            @if (session()->has('success_msg'))
+                <div class="alert alert-success box-border d-flex justify-content-between align-items-center">
+                    <p class="pb-0 mb-0">{{ session('success_msg') }}</p>
+                    <a class="mdi mdi-close"></a>
+                </div>
+            @endif
         </div>
 
         <!-- All Posts -->

@@ -17,19 +17,25 @@
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
             <a href="/" class="navbar-brand">
-                <h4 class="text-bold float-start"><strong>COOL BLOG POST</strong></h4>
-                <div class="d-flex justify-content-end align-items-center">
-                    @if (auth()->check())
-                        <!-- Check if user is logged in -->
-                        <form action="/logout" method="POST" class="me-2">
-                            @csrf
-                            <button class="btn btn-primary">Log Out</button>
-                        </form>
-                    @endif
-                    <a href="/allpost" class="btn btn-primary">View All Posts</a>
-                </div>
+                <h4 class="text-bold"><strong>COOL BLOG POST</strong></h4>
+            </a>
+            <div class="d-flex align-items-center">
+                <a href="/allpost" class="btn btn-primary me-2">View All Posts</a>
+                @if (auth()->check())
+                    <!-- Check if user is logged in -->
+                    <form action="/logout" method="POST" class="me-2">
+                        @csrf
+                        <button class="btn btn-primary">Log Out</button>
+                    </form>
+                    <form action="{{ route('profile') }}" method="GET">
+                        @csrf
+                        <button class="btn btn-primary" type="submit">View Profile</button>
+                    </form>
+                @endif
+            </div>
         </div>
     </nav>
+
 
 
     {{-- Delete item success message --}}

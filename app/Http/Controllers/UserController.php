@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
-use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
@@ -48,5 +49,14 @@ class UserController extends Controller
 
         Session::flash('success_msg', 'Registered and logged in successfully');
         return redirect('/');
+    }
+
+    public function viewProfile()
+    {
+        // Get the authenticated user
+        $user = auth()->user();
+
+        // Return the view with the authenticated user's profile
+        return view('view-profile', compact('user'));
     }
 }

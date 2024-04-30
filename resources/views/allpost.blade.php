@@ -16,9 +16,12 @@
                     <h4 class="mt-3 mb-5"><strong>Latest posts</strong></h4>
 
                     @php $count = 0; @endphp <!-- Initialize a counter -->
+
                     <div class="row">
                         @foreach ($posts as $post)
-                            <div class="col-lg-4 col-md-6 mb-4">
+                            <!-- Create a card for each post -->
+
+                            <div class="col-lg-4 col-md-6 mb-4" onclick="{{ route('showPostByID', ['id' => $post->id]) }}">
                                 <!-- Use col-lg-4 to create three columns on large screens, and col-md-6 for medium screens -->
                                 <div class="card post-card">
                                     <div class="bg-image hover-overlay ripple-surface-light" data-mdb-ripple-init=""

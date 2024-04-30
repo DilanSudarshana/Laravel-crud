@@ -8,11 +8,11 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="{{ url('/assets/bootstrap/css/bootstrap.min.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
     <script src="{{ url('/assets/bootstrap/js/bootstrap.min.js') }}"></script>
 </head>
 
 <body>
-
 
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
@@ -93,86 +93,51 @@
         }
     </style>
 
-    <footer class="bg-body-tertiary text-center">
+    <footer class="text-center bg-body-tertiary mt-1" style="background-color: rgba(0, 0, 0, 0.05);">
         <!-- Grid container -->
-        <div class="container p-4">
-            <!-- Section: Images -->
-            <section class="">
-                <div class="row">
-                    <!-- First Row of Images -->
-                    <div class="col-lg-2 col-md-6 mb-4 mb-md-0 image-container">
-                        <!-- Image 1 -->
-                        <div data-mdb-ripple-init class="bg-image hover-overlay shadow-1-strong rounded"
-                            data-ripple-color="light">
-                            <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/113.webp" class="w-100" />
-                            <a href="#!">
-                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 mb-4 mb-md-0 image-container">
-                        <!-- Image 2 -->
-                        <div data-mdb-ripple-init class="bg-image hover-overlay shadow-1-strong rounded"
-                            data-ripple-color="light">
-                            <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/111.webp" class="w-100" />
-                            <a href="#!">
-                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 mb-4 mb-md-0 image-container">
-                        <!-- Image 3 -->
-                        <div data-mdb-ripple-init class="bg-image hover-overlay shadow-1-strong rounded"
-                            data-ripple-color="light">
-                            <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/112.webp" class="w-100" />
-                            <a href="#!">
-                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Second Row of Images -->
-                    <div class="col-lg-2 col-md-6 mb-4 mb-md-0 image-container">
-                        <!-- Image 4 -->
-                        <div data-mdb-ripple-init class="bg-image hover-overlay shadow-1-strong rounded"
-                            data-ripple-color="light">
-                            <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/114.webp" class="w-100" />
-                            <a href="#!">
-                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 mb-4 mb-md-0 image-container">
-                        <!-- Image 5 -->
-                        <div data-mdb-ripple-init class="bg-image hover-overlay shadow-1-strong rounded"
-                            data-ripple-color="light">
-                            <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/115.webp" class="w-100" />
-                            <a href="#!">
-                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 mb-4 mb-md-0 image-container">
-                        <!-- Image 6 -->
-                        <div data-mdb-ripple-init class="bg-image hover-overlay shadow-1-strong rounded"
-                            data-ripple-color="light">
-                            <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/116.webp" class="w-100" />
-                            <a href="#!">
-                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+        <div class="container pt-4">
+            <!-- Section: Social media -->
+            <section class="mb-4">
+                <!-- Facebook -->
+                <a data-mdb-ripple-init class="btn btn-link btn-floating btn-lg text-body m-1"
+                    href="https://web.facebook.com/" role="button" data-mdb-ripple-color="dark"><i
+                        class="bi bi-facebook"></i></a>
+
+                <!-- Twitter -->
+                <a data-mdb-ripple-init class="btn btn-link btn-floating btn-lg text-body m-1"
+                    href="https://twitter.com/i/flow/login" role="button" data-mdb-ripple-color="dark"><i
+                        class="bi bi-twitter"></i></a>
+
+                <!-- Google -->
+                <a data-mdb-ripple-init class="btn btn-link btn-floating btn-lg text-body m-1"
+                    href="https://www.google.co.uk/" role="button" data-mdb-ripple-color="dark"><i
+                        class="bi bi-google"></i></a>
+
+                <!-- Instagram -->
+                <a data-mdb-ripple-init class="btn btn-link btn-floating btn-lg text-body m-1"
+                    href="https://www.youtube.com/" role="button" data-mdb-ripple-color="dark"><i
+                        class="bi bi-youtube"></i></a>
+
+                <!-- Linkedin -->
+                <a data-mdb-ripple-init class="btn btn-link btn-floating btn-lg text-body m-1"
+                    href="https://www.linkedin.com/" role="button" data-mdb-ripple-color="dark"><i
+                        class="bi bi-linkedin"></i></a>
+                <!-- Github -->
+                <a data-mdb-ripple-init class="btn btn-link btn-floating btn-lg text-body m-1"
+                    href="https://github.com/" role="button" data-mdb-ripple-color="dark"><i
+                        class="bi bi-github"></i></a>
             </section>
-            <!-- Section: Images -->
+            <!-- Section: Social media -->
         </div>
         <!-- Grid container -->
 
         <!-- Copyright -->
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
-            © 2024 cool blog post, Inc/ author Dilan Sudarshana
+            © 2024 Copyright:author Dilan Sudarshana
         </div>
         <!-- Copyright -->
     </footer>
+    <!-- Footer -->
 
 </body>
 

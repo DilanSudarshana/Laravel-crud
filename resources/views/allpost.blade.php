@@ -32,16 +32,16 @@
                                             </div>
                                         </a>
                                     </div>
-                                    <div class="card-body">
+                                    <div class="card-body" style="height: 200px; overflow-y: auto;">
                                         <h5 class="card-title"><strong>{{ $post->title }}</strong></h5>
                                         <p class="card-text">{{ $post->body }}</p>
-                                        <a href="{{ route('showPostByID', ['id' => $post->id]) }}" class="btn btn-primary"
-                                            data-mdb-ripple-init="">Read</a>
                                     </div>
                                     <div class="card-footer d-flex justify-content-between p-3">
                                         <div>
                                             <small> Posted by {{ $post->user->name }}</small>
                                         </div>
+                                        <a href="{{ route('showPostByID', ['id' => $post->id]) }}" class="btn btn-primary"
+                                            data-mdb-ripple-init="">Read</a>
                                     </div>
                                 </div>
                             </div>

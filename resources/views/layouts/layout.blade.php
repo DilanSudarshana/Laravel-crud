@@ -169,7 +169,7 @@
 
         <!-- Copyright -->
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
-            © 2024 cool blog post, Inc
+            © 2024 cool blog post, Inc/ author Dilan Sudarshana
         </div>
         <!-- Copyright -->
     </footer>

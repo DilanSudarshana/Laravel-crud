@@ -23,10 +23,10 @@
                                 <div class="card post-card">
                                     <div class="bg-image hover-overlay ripple-surface-light" data-mdb-ripple-init=""
                                         data-mdb-ripple-color="light" style="">
-                                        <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
-                                            class="img-fluid">
+                                        <img src="{{ asset($post->image) }}" class="img-fluid">
                                         <a href="#!">
-                                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);">
+                                            </div>
                                         </a>
                                     </div>
                                     <div class="card-body">

@@ -36,7 +36,7 @@ Route::get('/register', function () {
 
 
 // Blog post routes
-Route::post('/create-post', [PostController::class, 'createPost']);
+Route::post('/create-post', [PostController::class, 'createpost'])->name('posts.createpost');
 Route::get('/edit-post/{post}', [PostController::class, 'showpost']);
 Route::put('/edit-post/{post}', [PostController::class, 'updatePost']);
 

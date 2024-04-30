@@ -11,15 +11,31 @@ class PostController extends Controller
 {
     public function createpost(Request $request)
     {
-        $inputs = $request->validate([
+        $request->validate([
             'title' => 'required',
             'body' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Validate image file
         ]);
 
-        $inputs['user_id'] = auth()->id();
-        Post::create($inputs);
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
 
-        return redirect('/')->with('success_msg', 'Post created successfully');
+            if ($image->isValid()) {
+                $extension = $image->getClientOriginalName();
+                $imageName = rand(111, 99999) . '.' . $extension;
+
+                if (!is_dir('public/images')) {
+                    mkdir('public/images', 0777, true);
+                }
+                $imagePath = '/images/' . $imageName;
+                $image->move(public_path('images'), $imageName);
+                $inputs = $request->except('image');
+                $inputs['image'] = $imagePath;
+                $inputs['user_id'] = auth()->id();
+                Post::create($inputs);
+                return redirect('/')->with('success_msg', 'Post created successfully');
+            }
+        }
     }
 
     public function showpost(Post $post)
@@ -36,8 +52,6 @@ class PostController extends Controller
         if (auth()->user()->id !== $post->user_id) {
             Session::flash('error_msg', 'Unauthorized action');
             return redirect('/');
-
-            //return redirect('/')->with('error_msg','Unauthorized action');
         }
 
         $validatedData = $request->validate([
@@ -66,6 +80,7 @@ class PostController extends Controller
     {
         $posts = Post::all();
         return view('/allpost', ['posts' => $posts]);
+        echo dump($posts);
     }
 
     public function showPostByID($id)

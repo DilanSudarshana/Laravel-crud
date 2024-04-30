@@ -7,12 +7,11 @@
 
                 <!-- Image as Background -->
                 <div class="bg-image hover-overlay ripple-surface-light" data-mdb-ripple-init="" data-mdb-ripple-color="light"
-                    style="background-image: url('https://mdbootstrap.com/img/new/standard/nature/184.jpg'); height: 60%;">
+                    style="background-image: url('{{ asset($post->image) }}'); height: 60%;">
                     <a href="#!">
                         <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
                     </a>
                 </div>
-
                 <!-- Card Content -->
                 <div class="card-body">
                     <h4 class="card-title"><strong>{{ $post->title }}</strong></h4>

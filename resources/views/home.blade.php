@@ -5,7 +5,7 @@
         <!-- Create Post Form -->
         <div class="shadow p-3 bg-body-tertiary rounded d-grid gap-2 col-6 mx-auto mt-5">
             <h4><strong>Create a new post</strong></h4>
-            <form action="create-post" method="POST">
+            <form action="{{ route('posts.createpost') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group mt-1">
                     <input type="text" class="form-control" name="title" placeholder="Title">
@@ -13,12 +13,15 @@
                 <div class="form-group mt-1">
                     <textarea class="form-control" name="body" placeholder="Description"></textarea>
                 </div>
+                <div class="form-group mt-1">
+                    <input id="service-img" name="image" type="file" class="form-control" onchange="previewImage()" />
+                </div>
                 <div class="mt-2 d-flex justify-content-center">
-                    <button class="btn btn-primary ">Create a Post</button>
+                    <button type="submit" class="btn btn-primary">Create a Post</button>
                 </div>
             </form>
             @if (session()->has('success_msg'))
-                <div class="alert alert-success box-border d-flex justify-content-between align-items-center">
+                <div class="alert alert-success box-border d-flex justify-content-between align-items-center mt-3">
                     <p class="pb-0 mb-0">{{ session('success_msg') }}</p>
                     <a class="mdi mdi-close"></a>
                 </div>
@@ -48,10 +51,11 @@
                                 <!-- Use col-lg-4 to create three columns on large screens, and col-md-6 for medium screens -->
                                 <div class="card mt-2">
                                     <div class="bg-image hover-overlay ripple-surface-light" data-mdb-ripple-init=""
-                                        data-mdb-ripple-color="light">
-                                        <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid">
+                                        data-mdb-ripple-color="light" style="">
+                                        <img src="{{ asset($post->image) }}" class="img-fluid">
                                         <a href="#!">
-                                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);">
+                                            </div>
                                         </a>
                                     </div>
                                     <div class="card-body">

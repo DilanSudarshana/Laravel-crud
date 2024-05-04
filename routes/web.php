@@ -26,7 +26,6 @@ Route::put('/update-profile/{user}', [UserController::class, 'updateProfile'])->
 // Route::get('/largepost{id}', function (){
 //     return view('largepost');
 // });
-
 Route::post('/register', [UserController::class, 'register']);
 Route::post('/logout', [UserController::class, 'logout']);
 Route::post('/login', [UserController::class, 'login']);
@@ -34,10 +33,8 @@ Route::get('/register', function () {
     return view('register');
 });
 
-
 // Blog post routes
 Route::post('/create-post', [PostController::class, 'createpost'])->name('posts.createpost');
 Route::get('/edit-post/{post}', [PostController::class, 'showpost']);
 Route::put('/edit-post/{post}', [PostController::class, 'updatePost']);
-
 Route::delete('/delete-post/{post}', [PostController::class, 'deletePost']);
